@@ -11,7 +11,7 @@ setup(
     description="Wrapper for VALORANT's client API",
     long_description=long_desc,
     long_description_content_type="text/markdown",
-    url="https://github.com/colinhartigan/valclient.py",
+    url="https://github.com/mbok1200/valclient-2.28",
     project_urls={},
     classifiers=[
         "Programming Language :: Python :: 3",

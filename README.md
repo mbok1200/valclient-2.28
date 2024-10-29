@@ -2,9 +2,6 @@
 
 ### API wrapper for VALORANT's client API
 
-[![Discord](https://img.shields.io/badge/discord-join-7389D8?style=flat&logo=discord)](https://discord.gg/uGuswsZwAT)
-[![Downloads](https://pepy.tech/badge/valclient)](https://pepy.tech/project/valclient)
-
 ## Installation
 ```python
 pip install valclient
