@@ -755,7 +755,34 @@ class Client:
                     return json.loads(base64.b64decode(presence['private']))
         except:
             return None
+    def fetch_conversation(self, puuid:str=None) -> dict:
+        '''
+        PRESENCE_RNet_GET
+        NOTE: Only works on self or active user's friends
+        '''
+        puuid = self.__check_puuid(puuid)
+        data = self.fetch(endpoint="/chat/v6/conversations", endpoint_type="local")
+        try:
+            return data['conversations']     
+        except:
+            return None
+    def fetch_send_message(self, message:str="", typeChat:str="chat") -> dict:
+        '''
+        PRESENCE_RNet_GET
+        NOTE: Only works on self or active user's friends
+        '''
+        puuid = self.__check_puuid(puuid)
+        conversation = self.fetch_conversation(self)
 
+        data = self.post(endpoint="/chat/v6/messages", json_data={
+            "cid": conversation['cid'],
+            "message": message,
+            "type": typeChat
+        }, endpoint_type="local")
+        try:
+            return conversation
+        except:
+            return None
     def fetch_all_friend_presences(self) -> dict:
         '''
         PRESENCE_RNet_GET_ALL
